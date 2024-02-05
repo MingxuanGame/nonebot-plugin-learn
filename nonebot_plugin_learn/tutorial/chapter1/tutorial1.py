@@ -1,4 +1,5 @@
 """课程1：插件入门"""
+
 from io import BytesIO
 from pathlib import Path
 from typing import List, Optional
@@ -75,7 +76,9 @@ async def commit_tutorial1(matcher: Matcher, _: MessageEvent):
         await matcher.finish("提交结果失败：\n" + "\n".join(error_msgs))
     else:
         set_state("2")
-        await matcher.finish(f"恭喜通过课程1，接下来的课程为：\n{STATES['2']}\n输入命令“课程2”进入")
+        await matcher.finish(
+            f"恭喜通过课程1，接下来的课程为：\n{STATES['2']}\n输入命令“课程2”进入"
+        )
 
 
 __tutorial1__ = {"课程1": handle_tutorial1, "提交课程1": commit_tutorial1}
